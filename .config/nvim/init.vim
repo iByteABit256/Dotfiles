@@ -40,8 +40,7 @@ Plug 'machakann/vim-sandwich'
 "Dogrun color scheme
 Plug 'wadackel/vim-dogrun'
 
-"Tokyo Night color scheme
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
@@ -78,10 +77,5 @@ nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
 
 "Color scheme
-
-set termguicolors
-
-let g:tokyonight_style = 'night' " available: night, storm
-let g:tokyonight_enable_italic = 1
 
 colorscheme tokyonight
