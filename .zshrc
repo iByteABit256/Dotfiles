@@ -11,13 +11,15 @@ unsetopt autocd extendedglob notify
 bindkey -v
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/paul/.zshrc'
+zstyle :compinstall filename '/home/pauls/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
 alias ls='ls --color=auto'
+alias goodnight='systemctl poweroff'
+alias katia='echo "katia is awesome <3" | lolcat'
 
 # Prompt themes
 #autoload -Uz promptinit
