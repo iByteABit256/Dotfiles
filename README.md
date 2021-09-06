@@ -6,9 +6,9 @@
 
 **WM:** awesome
 
-**Theme:** Numix
+**Theme:** Dracula
 
-**Icon Theme:** Sea
+**Icon Theme:** Suru++
 
 **Terminal:** Konsole
 
