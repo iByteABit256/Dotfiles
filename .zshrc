@@ -20,6 +20,7 @@ compinit
 alias ls='ls --color=auto'
 alias goodnight='systemctl poweroff'
 alias katia='echo "katia is awesome <3" | lolcat'
+alias startMaria='systemctl start mariadb'
 
 # Prompt themes
 #autoload -Uz promptinit

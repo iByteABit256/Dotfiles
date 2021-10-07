@@ -22,9 +22,9 @@ eDP-1 Width 1920x1080=951
 eDP-1 XPosition 1920x1080=6
 eDP-1 YPosition 1920x1080=29
 eDP1 Height 1920x1080=1044
-eDP1 Width 1920x1080=1139
-eDP1 XPosition 1920x1080=8
-eDP1 YPosition 1920x1080=28
+eDP1 Width 1920x1080=756
+eDP1 XPosition 1920x1080=4
+eDP1 YPosition 1920x1080=24
 
 [ThumbnailsSettings]
 ThumbnailCtrl=true

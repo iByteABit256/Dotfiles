@@ -47,6 +47,7 @@ end
 -- Themes define colours, icons, font and wallpapers.
 
 beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
+beautiful.font = "Noto Sans 10"
 
 -- This is used later as the default terminal and editor to run.
 terminal = "konsole" 
@@ -124,6 +125,9 @@ mytext = wibox.widget{
 -- root disk usage
 disk_usage = awful.widget.watch('bash -c "~/scripts/diskUsage.sh"')
 
+-- home disk usage
+home_disk_usage = awful.widget.watch('bash -c "~/scripts/hardDiskUsage.sh"')
+
 -- ping to archlinux.org
 ping = awful.widget.watch('bash -c "~/scripts/ping.sh"')
 
@@ -132,6 +136,12 @@ cpu_pct = awful.widget.watch('bash -c "~/scripts/cpuUsage.sh"')
 
 -- ram Usage
 ram_pct = awful.widget.watch('bash -c "~/scripts/ramUsage.sh"')
+
+-- Brightness
+bright_pct = awful.widget.watch('bash -c "~/scripts/brightness.sh"', 0.2)
+
+-- Volume
+vol_pct = awful.widget.watch('bash -c "~/scripts/volume.sh"', 0.2)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -233,6 +243,10 @@ awful.screen.connect_for_each_screen(function(s)
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
+            bright_pct,
+            seperator,
+            vol_pct,
+            seperator,
             ping,
             seperator,
             cpu_pct,
@@ -240,6 +254,8 @@ awful.screen.connect_for_each_screen(function(s)
             ram_pct,
             seperator,
             disk_usage,
+            seperator,
+            home_disk_usage,
             seperator,
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
@@ -405,7 +421,14 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+
+    -- flameshot screenshot
+    awful.key({}, "Print",
+        function ()
+            awful.util.spawn("flameshot gui", false)
+        end ,
+        {description = "Take a screenshot", group = "programs"})
 )
 
 -- Bind all key numbers to tags.
