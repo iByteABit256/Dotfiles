@@ -122,6 +122,10 @@ mytext = wibox.widget{
     widget = wibox.widget.textbox
 }
 
+-- cron job frequencies
+medium_freq = 1
+short_freq = 0.2
+
 -- root disk usage
 disk_usage = awful.widget.watch('bash -c "~/scripts/diskUsage.sh"')
 
@@ -132,16 +136,19 @@ home_disk_usage = awful.widget.watch('bash -c "~/scripts/hardDiskUsage.sh"')
 ping = awful.widget.watch('bash -c "~/scripts/ping.sh"')
 
 -- CPU Usage
-cpu_pct = awful.widget.watch('bash -c "~/scripts/cpuUsage.sh"')
+cpu_pct = awful.widget.watch('bash -c "~/scripts/cpuUsage.sh"', medium_freq)
 
 -- ram Usage
-ram_pct = awful.widget.watch('bash -c "~/scripts/ramUsage.sh"')
+ram_pct = awful.widget.watch('bash -c "~/scripts/ramUsage.sh"', medium_freq)
 
 -- Brightness
-bright_pct = awful.widget.watch('bash -c "~/scripts/brightness.sh"', 0.2)
+bright_pct = awful.widget.watch('bash -c "~/scripts/brightness.sh"', short_freq)
 
 -- Volume
-vol_pct = awful.widget.watch('bash -c "~/scripts/volume.sh"', 0.2)
+vol_pct = awful.widget.watch('bash -c "~/scripts/volume.sh"', short_freq)
+
+-- Battery Percentage
+battery_pct = awful.widget.watch('bash -c "~/scripts/batteryPercentage.sh"', medium_freq)
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -244,6 +251,8 @@ awful.screen.connect_for_each_screen(function(s)
         s.mytasklist, -- Middle widget
         { -- Right widgets
             bright_pct,
+            seperator,
+            battery_pct,
             seperator,
             vol_pct,
             seperator,
