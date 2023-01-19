@@ -10,7 +10,7 @@ set shiftwidth=4            " width for autoindents
 set autoindent              " indent a new line the same amount as the line just typed
 set number                  " add line numbers
 set wildmode=longest,list   " get bash-like tab completions
-set cc=80                   " set an 80 column border for good coding style
+set cc=120                  " set an 80 column border for good coding style
 filetype plugin indent on   " allows auto-indenting depending on file type
 syntax on                   " syntax highlighting
 let g:mapleader = ','       " custom command leading key
@@ -39,6 +39,9 @@ Plug 'machakann/vim-sandwich'
 
 "Dogrun color scheme
 Plug 'wadackel/vim-dogrun'
+
+"Python autocomplete                                                                                                    
+Plug 'davidhalter/jedi-vim'
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
