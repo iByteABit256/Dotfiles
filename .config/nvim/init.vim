@@ -45,6 +45,8 @@ Plug 'davidhalter/jedi-vim'
 
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
+Plug 'preservim/nerdtree'
+
 call plug#end()
 
 "Greeting
@@ -78,6 +80,15 @@ nnoremap <silent> <C-h> :call WinMove('h')<CR>
 nnoremap <silent> <C-j> :call WinMove('j')<CR>
 nnoremap <silent> <C-k> :call WinMove('k')<CR>
 nnoremap <silent> <C-l> :call WinMove('l')<CR>
+
+"NERDTree mappings
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" Start NERDTree and put the cursor back in the other window.
+autocmd VimEnter * NERDTree | wincmd p
 
 "Color scheme
 
