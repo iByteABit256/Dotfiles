@@ -1,0 +1,3 @@
+require("dank-config")
+print(">^.^<")
+
