@@ -50,7 +50,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "xresources/theme.lua")
 beautiful.font = "Noto Sans 10"
 
 -- This is used later as the default terminal and editor to run.
-terminal = "konsole" 
+terminal = "kitty" 
 editor = os.getenv("EDITOR") or "vim" 
 editor_cmd = terminal .. " -e " .. editor
 
@@ -148,7 +148,7 @@ bright_pct = awful.widget.watch('bash -c "~/scripts/brightness.sh"', short_freq)
 vol_pct = awful.widget.watch('bash -c "~/scripts/volume.sh"', short_freq)
 
 -- Battery Percentage
-battery_pct = awful.widget.watch('bash -c "~/scripts/batteryPercentage.sh"', medium_freq)
+battery_pct = awful.widget.watch('bash -c "~/scripts/batteryPercentage.sh"')
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
