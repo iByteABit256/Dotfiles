@@ -30,6 +30,8 @@ return require('packer').startup(function(use)
 
     use 'machakann/vim-sandwich'
 
+    use 'f-person/git-blame.nvim'
+
 	use {
 		'VonHeikemen/lsp-zero.nvim',
 		branch = 'v2.x',
